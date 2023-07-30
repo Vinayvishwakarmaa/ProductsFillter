@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
+:root{
+  --primary: #e37676;
+}
+
 *{
       margin: 0;
       padding: 0;
@@ -59,7 +63,7 @@
 
   .product_content button{
       font-size: 20px;
-      background-color: green;
+      background-color: var(--primary);
       color: #fff;
       border: none;
       padding: 5px 20px;
@@ -88,9 +92,15 @@
       font-size: 25px;
       padding-left: 35px;
       height: 35px;
+      color: #000;
+      border: 2px solid var(--primary);
 }
 
 
+
+.input_container input::placeholder{
+      color: var(--primary);
+}
 
 .search_icon{
       position: relative;
