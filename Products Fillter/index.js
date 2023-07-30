@@ -1,6 +1,7 @@
 (async () => {
       
       const productContainerEl = document.getElementById("productContainer");
+      const searchInputEl = document.getElementById("searchInput");
 
       const url = 'https://fakestoreapi.com/products';
       const fetchProducts = async () => {
@@ -35,5 +36,22 @@
                   productContainerEl.innerHTML +=generateProducts(product);
             });
       }
+
+
+      
+      const fillterHandler = (event) => {
+            const searchText = event.target.value.toLowerCase();
+            const fillteredProducts = products.filter((product) => {
+                  return (
+                       product.title.toLowerCase().includes(searchText), 
+                       product.description.toLowerCase().includes(searchText)
+                  );
+            });
+
+            renderProducts(fillteredProducts);
+   }
+       
+      searchInputEl.addEventListener('keyup', fillterHandler);
+
       renderProducts(products);
 })();
